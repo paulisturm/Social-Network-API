@@ -1,0 +1,24 @@
+{
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^7.3.1"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "name": "social-network-api",
+  "description": "",
+  "version": "1.0.0",
+  "main": "server.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/paulisturm/Social-Network-API.git"
+  },
+  "author": "Paul Sturm",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/paulisturm/Social-Network-API/issues"
+  },
+  "homepage": "https://github.com/paulisturm/Social-Network-API#readme"
+}
