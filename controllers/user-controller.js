@@ -49,8 +49,9 @@ module.exports = {
         if (!user) {
             return res.status(404).json({ message: 'No user with this id!' });
           }
-          res.json(course);
+          res.json(user);
         } catch (err) {
+          console.log(err)
           res.status(500).json(err);
         }
         },
@@ -91,7 +92,7 @@ module.exports = {
         try {
           const user = await User.findOneAndUpdate(
             { _id: req.params.userId },
-            { $pull: { assignment: { friendId: req.params.friendId } } },
+            { $pull: { friend: { friendId: req.params.friendId } } },
             { runValidators: true, new: true }
           );
     

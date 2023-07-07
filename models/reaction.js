@@ -1,5 +1,5 @@
 const { Schema, Types } = require('mongoose');
-const dateformat = require('../utils/dateformat');
+const {format_date} = require('../utils/dateformat');
 
 const reactionSchema = new Schema(
     {
@@ -19,7 +19,7 @@ const reactionSchema = new Schema(
         createdAt: {
             type: Date,
             default: Date.now,
-            get: dates => dateformat(dates)
+            get: dates => format_date(dates)
         }
     },
     {

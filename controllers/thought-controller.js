@@ -7,6 +7,7 @@ module.exports = {
         const thoughts = await Thought.find();
         res.json(thoughts);
     } catch (err) {
+        console.log(err)
         res.status(500).json(err);
     }
     },
@@ -14,7 +15,7 @@ module.exports = {
     async getSingleThought(req, res) {
         try {
             const thought = await Thought.findOne({ _id: req.params.thoughtId })
-            .select('__v');
+            .select('-__v');
         
         if (!thought) {
             return res.status(404).json({ message: 'No thought with that ID' });
@@ -22,6 +23,7 @@ module.exports = {
 
         res.json(thought);
     } catch (err) {
+        console.log(err)
         res.status(500).json(err);
     }
     },  
@@ -44,12 +46,13 @@ module.exports = {
                 { runValidators: true, new: true }
             );
 
-            if (!course) {
+            if (!thought) {
                 return res.status(404).json({ message: 'No thought with this id!'})
             }
 
             res.json(thought);
         } catch (err) {
+            console.log(err)
             res.status(500).json(err);
         }
     },
